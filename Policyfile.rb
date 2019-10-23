@@ -8,6 +8,11 @@ name 'base_policy_cb'
 
 # Where to find external cookbooks:
 default_source :supermarket
+default_source :chef_server, "https://api.chef.io/organizations/cchmc-workshop"
+
+default_source :supermarket, "https://supermarket.chef.io" do |s|
+  s.preferred_for "chef-client", "audit"
+end
 
 # run_list: chef-client will run these recipes in the order specified.
 run_list 'base_policy_cb::default'
